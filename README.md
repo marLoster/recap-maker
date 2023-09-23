@@ -18,9 +18,30 @@ Firstly input files are loaded and are split into text files, each contataining 
 
 Then, document store is created and all the files are loaded into it. Moreover, dictionary with mappings from entry in document store to a page in pdf input document is created. 
 
-Later, the model is loaded and script selects documents (slides) to each query (topic). The program first matches all documents with a similarity to a query that is higher than the specifed threshold. Then the query is split into several fragments to account for topics that contain a list of important things to cover. If answer to a fragment is not found in the documents associated so far, the similairity 
+Later, the model is loaded and script selects documents (slides) to each query (topic). The program first matches all documents with a similarity to a query that is higher than the specifed threshold. Then the query is split into several fragments to account for topics that contain a list of important things to cover. If answer to a fragment is not found in the documents associated so far, the similairity is measured between the fragment and the documents. Again the documents with similarity higher than threshold are selected to be included in the result file.
 
+After a list of topics and associated documents is created, the pdf file is generated. It generates a new page with the topic, and then selected slides are attached after the page with the topic. Then another topic follows with its pages, and so on.
+
+## models used
+
+- BM25 - model using frequency of the words to calculate similarity it achieved the best results
+- intfloat/multilingual-e5-large - dense model
+
+There was also an attempt to use a new model, that would be created specifically for this task, however the created models did not live up even to a minimal expectations.
+The description of own models is available in the subdirectory.
+
+## conclusions
+
+The pipeline was setup correctly, however the most important part, which is calculating the similarity between documents and queries does not work so well:
+
+- A lot of important slides are often skipped and are not included in relevant topics. It often happens because the explanation of the topic is split into several slides and (according to models) only the first slide is similair enough to the question.
+- Sometimes irrelevant slides are being attached to a question. Probably there are more stopwords that need to be filtered.
+- Number of slides is too big. It can be adjusted using thresholds mentioned earlier, but it is hard to estimate a proper values for those.
+
+Better models may also be able to fix these issues.
+
+## materials used:
 
 stopwords used from: https://github.com/bieli/stopwords/blob/master/polish.stopwords.txt
 
-dataset mtnq comes from this paper: https://arxiv.org/abs/2305.05486
+dataset (used to train personal models) mtnq comes from this paper: https://arxiv.org/abs/2305.05486
