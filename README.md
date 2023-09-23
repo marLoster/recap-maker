@@ -27,7 +27,7 @@ After a list of topics and associated documents is created, the pdf file is gene
 - BM25 - model using frequency of the words to calculate similarity, it achieved the best results
 - intfloat/multilingual-e5-large - dense model
 
-There was also an attempt to use a new model, that would be created specifically for this task, however the created models did not live up even to a minimal expectations.
+There was also an attempt to use a new model, that would be created specifically for this task, however the created models did not live up even to minimal expectations.
 The description of own models is available in the subdirectory.
 
 ## conclusions
