@@ -18,7 +18,7 @@ Firstly input files are loaded and are split into text files, each contataining 
 
 Then, document store is created and all the files are loaded into it. Moreover, dictionary with mappings from entry in document store to a page in pdf input document is created. 
 
-Later, the model is loaded and script selects documents (slides) to each query (topic). The program first matches all documents with a similarity to a query that is higher than the specifed threshold. Then the query is split into several fragments to account for topics that contain a list of important things to cover. If answer to a fragment is not found in the documents associated so far, the similairity is measured between the fragment and the documents. Again the documents with similarity higher than threshold are selected to be included in the result file.
+Later, the model is loaded and script selects documents (slides) to each query (topic). The program first matches all documents with a similarity to a query that is higher than the specifed threshold. Then the query is split into several fragments to account for topics that contain a list of important things to cover. If answer to a fragment is not found in the documents associated so far, the similairity is measured between the fragment and the documents. Again the documents with similarity higher than threshold (this one might be different from the one mentioned previously) are selected to be included in the result file.
 
 After a list of topics and associated documents is created, the pdf file is generated. It generates a new page with the topic, and then selected slides are attached after the page with the topic. Then another topic follows with its pages, and so on.
 
