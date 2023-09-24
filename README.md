@@ -45,3 +45,9 @@ Better models may also be able to fix these issues.
 stopwords used from: https://github.com/bieli/stopwords/blob/master/polish.stopwords.txt
 
 dataset (used to train personal models) mtnq comes from this paper: https://arxiv.org/abs/2305.05486
+
+## repository files
+
+- bm25 - pipeline using bm25 model
+- dense-v2-copy2 - same pipeline using dense model
+- own_model - directory with scripts used to create own language model. (It was not implemented in any pipeline)
